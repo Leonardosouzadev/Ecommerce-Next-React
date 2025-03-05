@@ -1,22 +1,7 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Head from "./components/head";
 import "./globals.css";
 import NavBar from "./components/navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Gangsta Paradise",
-  description: "Faça parte da gangsta paradise",
-};
+import Footer from "./components/footer";
 
 export default function RootLayout({
   children,
@@ -25,11 +10,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <NavBar />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <Head />
+      <body className="bg-gray-100 font-geist-sans font-geist-mono">
+        <NavBar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
