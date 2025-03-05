@@ -1,6 +1,7 @@
 import { ProductType } from "../../../types/producttype";
+import Product from "../components/products";
 
-async function getProdutos(): Promise<Product[]> {
+async function getProdutos(): Promise<ProductType[]> {
   const response = await fetch("https://fakestoreapi.com/products");
 
   if (!response.ok) {
@@ -16,12 +17,7 @@ export default async function Home() {
     <div className="container mx-auto px-4 p-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {products.map((product: ProductType) => (
-          <div
-            key={product.id}
-            className="bg-gray-100 p-6 rounded-lg shadow-lg text-center"
-          >
-            {product.title}
-          </div>
+          <Product key={product.id} product={product} />
         ))}
       </div>
     </div>
