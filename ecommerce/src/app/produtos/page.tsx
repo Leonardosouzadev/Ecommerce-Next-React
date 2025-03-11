@@ -1,4 +1,4 @@
-import { ProductType } from "../../../types/producttype";
+import { ProductType } from "../../../types/ProductType";
 import Product from "../components/products";
 
 async function getProdutos(): Promise<ProductType[]> {

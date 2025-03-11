@@ -1,9 +1,10 @@
 import { FaShoppingCart } from "react-icons/fa";
-import { ProductType } from "../../../types/producttype";
+import { ProductType } from "../../../types/ProductType";
 
 type ProductProps = {
   product: ProductType;
 };
+
 export default function Product({ product }: ProductProps) {
   return (
     <div className="bg-gray-100 p-6 rounded-lg shadow-lg text-center flex flex-col justify-between">
