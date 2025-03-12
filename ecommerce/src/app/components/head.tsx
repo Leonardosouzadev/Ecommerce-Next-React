@@ -9,7 +9,8 @@ export default function Head() {
       <meta name="keywords" content="Gangsta, Paradise, Gangsta Paradise" />
       <meta name="robots" content="index, follow" />
       <meta name="language" content="Portuguese" />
-      <link rel="png" href="#" />
+      <link rel="icon" href="/logo1.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="#" />
     </head>
   );
 }
