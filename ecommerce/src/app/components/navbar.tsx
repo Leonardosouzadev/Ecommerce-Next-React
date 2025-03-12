@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaUser, FaShoppingCart } from "react-icons/fa"; // Importando ícones
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +18,9 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold">
-            <a href="#" className="hover:text-gray-400">
+            <Link href="/" className="hover:text-gray-400">
               <Image src="/logo1.png" alt="Logo" width={50} height={50} />
-            </a>
+            </Link>
           </div>
 
           <div className="hidden md:flex space-x-6">
@@ -32,15 +33,26 @@ const Navbar: React.FC = () => {
             <a href="#" className="hover:text-gray-400">
               <FaShoppingCart className="w-6 h-6" />
             </a>
-            <a href="#" className="hover:text-gray-400">
-              <FaUser className="w-6 h-6" />
-            </a>
+            <SignedIn>
+              <a href="" className="hover:text-gray-400">
+                <UserButton />
+              </a>
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <a className="hover:text-gray-400">
+                  <FaUser className="w-6 h-6" />
+                </a>
+              </SignInButton>
+            </SignedOut>
           </div>
 
           <div className="md:hidden flex items-center space-x-4">
-            <a href="#" className="hover:text-gray-400">
-              <FaShoppingCart className="w-4 h-4" />
-            </a>
+            <div>
+              <a href="#" className="hover:text-gray-400">
+                <FaShoppingCart className="w-4 h-4" />
+              </a>
+            </div>
 
             <a href="#" className="hover:text-gray-400">
               <FaUser className="w-4 h-4" />
